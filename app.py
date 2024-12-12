@@ -1,4 +1,4 @@
-from flask import request, jsonify, render_template
+from flask import request, jsonify
 from . import create_app
 from .utils import FileUtils
 from .controllers import upload_video_controller, detect_line_violation_controller, detect_helmet_violation_controller, get_captured_violations_controller, get_file
