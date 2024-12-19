@@ -1,9 +1,8 @@
-from flask import request, jsonify
-from . import create_app
+from flask import Flask, request, jsonify
 from .utils import FileUtils
 from .controllers import upload_video_controller, detect_line_violation_controller, detect_helmet_violation_controller, get_captured_violations_controller, get_file
 
-app = create_app()
+app = Flask(__name__)
 
 utils = FileUtils()
 app.config['UPLOAD_FOLDER'] = utils.create_uploads_dir()
