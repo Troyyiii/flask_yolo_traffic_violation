@@ -10,8 +10,6 @@ logger = logging.getLogger(__name__)
 def start_detection(file_dir, video_input_path, violation_type):
     capture = cv2.VideoCapture(video_input_path)
     
-    # frame_width = int(capture.get(cv2.CAP_PROP_FRAME_WIDTH))
-    # frame_height = int(capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
     fps = capture.get(cv2.CAP_PROP_FPS)
     
     video_id = os.path.basename(file_dir)
@@ -46,8 +44,6 @@ def start_detection(file_dir, video_input_path, violation_type):
                     box_color = (0, 255, 0)
                 else:
                     box_color = (0, 0, 0)
-                    
-                # cv2.rectangle(processed_frame, (20, 35), (450, 70), box_color, -1)
                 cvzone.putTextRect(processed_frame, f"Traffic light status: {detect_violation.traffic_light_status}, L: {detect_violation.traffic_light_violator_counter}, W: {detect_violation.wrong_way_violator_counter}", (25, 60), scale=1, thickness=1, offset=3, colorR=box_color)
         
         if violation_type == "helmet":

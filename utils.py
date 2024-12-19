@@ -46,14 +46,14 @@ class FileUtils:
         out.release()
     
     def search_video_dir(self, app_config, id):
-        for root, dirs, files in os.walk(app_config):
+        for root, dirs, _ in os.walk(app_config):
             for dir_name in dirs:
                 if dir_name == id:
                     return os.path.join(root, dir_name)
         return None
     
     def search_video(self, app_config, id):
-        for root, dirs, files in os.walk(app_config):
+        for root, _, files in os.walk(app_config):
             for file in files:
                 if file.endswith('.mp4'):
                     file_id = file.split('_')[0]

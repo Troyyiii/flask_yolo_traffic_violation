@@ -42,7 +42,6 @@ class DetectHelmetViolation:
         # yolo_processed_frame = results.render()[0]
         
         rider_detections, no_helmet_detections = self.get_detections(objects)
-        
         tracker_results = self.tracker.update(rider_detections)
         
         logger.info(f"Rider Detection : \n{rider_detections}\n")
@@ -50,7 +49,6 @@ class DetectHelmetViolation:
         logger.info(f"Tracker Results : \n{tracker_results}\n")
         
         processed_frame = self.draw_bounding_box(frame.copy(), tracker_results)
-        
         processed_frame = self.check_helmet_violation(processed_frame, tracker_results, no_helmet_detections)
         
         return processed_frame
@@ -107,7 +105,6 @@ class DetectHelmetViolation:
                         self.capture_violation(frame.copy(), (rxmin, rymin, rxmax, rymax))
                         logger.info(f"Helmet violation detected! Rider ID: {idx}\nTotal Violations: {self.helmet_violation_counter}\nViolator list: {self.helmet_violator_id_list}\n")
                         cv2.rectangle(frame, (rxmin, rymin), (rxmax, rymax), (0, 0, 255), 2)
-                        cv2.circle(frame, (cx, cy), 5, (0, 0, 255), -1)
                         cvzone.putTextRect(frame, f"{idx}", (max(0, xmin), max(35, ymin)), scale=0.8, thickness=1, offset=3)
     
             cv2.rectangle(frame, (xmin, ymin), (xmax, ymax), (0, 0, 255), 2)

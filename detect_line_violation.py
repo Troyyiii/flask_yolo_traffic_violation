@@ -57,11 +57,11 @@ class DetectLineViolation:
             logger.info("=== Detecting crosswalk boundary ===")
             
             trapezoid_frame = self.crop_to_trapezoid(frame.copy())
-            self.check_crosswalk(trapezoid_frame, frame.copy())
+            processed_frame = self.check_crosswalk(trapezoid_frame, frame.copy())
             
-            cvzone.putTextRect(frame, "Detecting Crosswalk Boundary...", (10, 10), scale=1, thickness=1)
+            cvzone.putTextRect(processed_frame, "Detecting Crosswalk Boundary...", (10, 10), scale=1, thickness=1)
             
-            return frame
+            return processed_frame
         else:
             processed_frame = self.detect_object(frame.copy())
             return processed_frame
