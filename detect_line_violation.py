@@ -4,8 +4,8 @@ import logging
 import cvzone
 import numpy as np
 from datetime import datetime
-from .sort import Sort
-from .model import load_model
+from sort import Sort
+from model import load_model
 
 logger = logging.getLogger(__name__)
 

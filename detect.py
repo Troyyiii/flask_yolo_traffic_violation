@@ -2,8 +2,8 @@ import os
 import cv2
 import logging
 import cvzone
-from .detect_line_violation import DetectLineViolation
-from .detect_helmet_violation import DetectHelmetViolation
+from detect_line_violation import DetectLineViolation
+from detect_helmet_violation import DetectHelmetViolation
 
 logger = logging.getLogger(__name__)
 

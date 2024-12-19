@@ -1,7 +1,7 @@
 import os
 from flask import request, jsonify, send_from_directory
 from werkzeug.utils import secure_filename
-from .detect import start_detection
+from detect import start_detection
 
 NO_ID_ERROR = {
     'status': 'error',
