@@ -31,7 +31,7 @@ def start_detection(file_dir, video_input_path, violation_type):
         ret, frame = capture.read()
         
         if not ret:
-            logger.error("Failed to open video file")
+            logger.error("Failed to open frame")
             break
         
         frame = cv2.resize(frame, (1280, 720))
