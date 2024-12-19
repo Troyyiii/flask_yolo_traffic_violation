@@ -40,7 +40,7 @@ def upload_video_controller(app_config, utils):
         uid, unique_name, created_at = utils.upload_process(filename)
         folder_name = os.path.join(app_config, uid)
         os.makedirs(folder_name, exist_ok=True)
-        file_path = os.path.join(folder_name, f"temp_{unique_name}")
+        file_path = os.path.join(folder_name, f"{unique_name}")
         file.save(file_path)
         response = {
             'status': 'success',
