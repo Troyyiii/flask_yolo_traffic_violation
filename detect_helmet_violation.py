@@ -102,10 +102,10 @@ class DetectHelmetViolation:
                     if idx not in self.helmet_violator_id_list:
                         self.helmet_violation_counter += 1
                         self.helmet_violator_id_list.append(idx)
-                        self.capture_violation(frame.copy(), (rxmin, rymin, rxmax, rymax))
-                        logger.info(f"Helmet violation detected! Rider ID: {idx}\nTotal Violations: {self.helmet_violation_counter}\nViolator list: {self.helmet_violator_id_list}\n")
                         cv2.rectangle(frame, (rxmin, rymin), (rxmax, rymax), (0, 0, 255), 2)
                         cvzone.putTextRect(frame, f"{idx}", (max(0, xmin), max(35, ymin)), scale=0.8, thickness=1, offset=3)
+                        self.capture_violation(frame.copy(), (rxmin, rymin, rxmax, rymax))
+                        logger.info(f"Helmet violation detected! Rider ID: {idx}\nTotal Violations: {self.helmet_violation_counter}\nViolator list: {self.helmet_violator_id_list}\n")
     
             cv2.rectangle(frame, (xmin, ymin), (xmax, ymax), (0, 0, 255), 2)
             
