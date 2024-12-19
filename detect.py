@@ -34,6 +34,8 @@ def start_detection(file_dir, video_input_path, violation_type):
             logger.error("Failed to open video file")
             break
         
+        frame = cv2.resize(frame, (1280, 720))
+        
         if violation_type == "line":
             processed_frame = detect_violation.start_detect(frame)
             draw_detected_areas(processed_frame, detect_violation.area)
